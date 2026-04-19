@@ -3,6 +3,7 @@
 :root,
 [data-theme="dark"] {
   --background: #000000;
+  --background-opaque: rgba(0, 0, 0, 0.95);
   --foreground: #ffffff;
   --foreground-subtle: rgba(255, 255, 255, 0.80);
   --foreground-dim: rgba(255, 255, 255, 0.70);
@@ -24,6 +25,7 @@
 
 [data-theme="light"] {
   --background: #f8f9fa;
+  --background-opaque: rgba(248, 249, 250, 0.97);
   --foreground: #0a0a0a;
   --foreground-subtle: rgba(10, 10, 10, 0.80);
   --foreground-dim: rgba(10, 10, 10, 0.70);
@@ -45,6 +47,7 @@
 
 @theme {
   --color-background: var(--background);
+  --color-background-opaque: var(--background-opaque);
   --color-foreground: var(--foreground);
   --color-foreground-subtle: var(--foreground-subtle);
   --color-foreground-dim: var(--foreground-dim);

@@ -19,6 +19,10 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://powersync.rw"),
+  icons: {
+    icon: "/images/powersync-logo.png",
+    apple: "/images/powersync-logo.png",
+  },
   title: "PowerSync | Smart Microgrid System for Rwanda",
   description: "Reliable, fuel-free electricity through smart microgrids with seamless digital energy access and intelligent management.",
   openGraph: {

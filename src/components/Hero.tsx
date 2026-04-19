@@ -37,14 +37,14 @@ export default function Hero() {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-energy-yellow text-black px-8 py-4 rounded-2xl text-lg font-black flex items-center gap-2 shadow-glow hover:brightness-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+            className="bg-energy-yellow text-black px-8 py-4 rounded-2xl text-lg font-black flex items-center gap-2 shadow-glow hover:brightness-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground cursor-pointer"
           >
             Get Reliable Energy <ArrowRight size={20} aria-hidden="true" />
           </motion.a>
 
           <a
             href="#problem"
-            className="glass px-8 py-4 rounded-2xl text-lg font-bold text-foreground-dim hover:bg-foreground/5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-energy-yellow"
+            className="glass px-8 py-4 rounded-2xl text-lg font-bold text-foreground-dim hover:bg-foreground/5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-energy-yellow cursor-pointer"
           >
             See Rwanda&apos;s Solution
           </a>

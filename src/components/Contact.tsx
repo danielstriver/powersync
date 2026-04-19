@@ -52,7 +52,7 @@ export default function Contact() {
               <button
                 type="button"
                 onClick={() => setSubmitted(false)}
-                className="mt-4 text-sm text-foreground-muted hover:text-foreground underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-energy-yellow rounded"
+                className="mt-4 text-sm text-foreground-muted hover:text-foreground underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-energy-yellow rounded cursor-pointer"
               >
                 Send another message
               </button>
@@ -106,7 +106,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="self-end flex items-center gap-2 bg-energy-yellow text-black px-8 py-4 rounded-full font-black hover:brightness-110 transition-all shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+                className="self-end flex items-center gap-2 bg-energy-yellow text-black px-8 py-4 rounded-full font-black hover:brightness-110 transition-all shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground cursor-pointer"
               >
                 Send Message <Send size={18} aria-hidden="true" />
               </button>
