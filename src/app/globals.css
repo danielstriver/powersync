@@ -1,23 +1,64 @@
 @import "tailwindcss";
 
-:root {
+:root,
+[data-theme="dark"] {
   --background: #000000;
   --foreground: #ffffff;
+  --foreground-subtle: rgba(255, 255, 255, 0.80);
+  --foreground-dim: rgba(255, 255, 255, 0.70);
+  --foreground-muted: rgba(255, 255, 255, 0.60);
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --card-border: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-dark-bg: rgba(0, 0, 0, 0.4);
+  --glass-dark-border: rgba(255, 255, 255, 0.05);
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --input-border: rgba(255, 255, 255, 0.10);
+  --input-placeholder: rgba(255, 255, 255, 0.30);
   --energy-yellow: #facc15;
   --energy-blue: #3b82f6;
   --energy-yellow-glow: 0 0 15px rgba(250, 204, 21, 0.5);
   --energy-blue-glow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
 
+[data-theme="light"] {
+  --background: #f8f9fa;
+  --foreground: #0a0a0a;
+  --foreground-subtle: rgba(10, 10, 10, 0.80);
+  --foreground-dim: rgba(10, 10, 10, 0.70);
+  --foreground-muted: rgba(10, 10, 10, 0.60);
+  --card-bg: rgba(0, 0, 0, 0.025);
+  --card-border: rgba(0, 0, 0, 0.07);
+  --glass-bg: rgba(255, 255, 255, 0.60);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-dark-bg: rgba(255, 255, 255, 0.75);
+  --glass-dark-border: rgba(0, 0, 0, 0.08);
+  --input-bg: rgba(0, 0, 0, 0.04);
+  --input-border: rgba(0, 0, 0, 0.12);
+  --input-placeholder: rgba(10, 10, 10, 0.35);
+  --energy-yellow: #d97706;
+  --energy-blue: #2563eb;
+  --energy-yellow-glow: 0 0 15px rgba(217, 119, 6, 0.4);
+  --energy-blue-glow: 0 0 15px rgba(37, 99, 235, 0.4);
+}
+
 @theme {
-  /* Using custom variable mappings */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-subtle: var(--foreground-subtle);
+  --color-foreground-dim: var(--foreground-dim);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
+  --color-input-placeholder: var(--input-placeholder);
   --color-energy-yellow: var(--energy-yellow);
   --color-energy-blue: var(--energy-blue);
-  
-  --shadow-glow: 0 0 15px var(--energy-yellow);
-  --shadow-glow-blue: 0 0 15px var(--energy-blue);
+
+  --shadow-glow: var(--energy-yellow-glow);
+  --shadow-glow-blue: var(--energy-blue-glow);
 }
 
 * {
@@ -29,24 +70,43 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Glassmorphism utility */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
 }
 
 .glass-dark {
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--glass-dark-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-dark-border);
 }
 
 /* Background gradient for depth */
 .radial-gradient-bg {
   background: radial-gradient(circle at top center, rgba(59, 130, 246, 0.05), transparent 70%);
+}
+
+/* GPU-accelerated blur backgrounds */
+.blur-orb {
+  will-change: transform;
+}
+
+/* Hero title gradient — adapts to theme via foreground CSS var */
+.hero-gradient-text {
+  background: linear-gradient(
+    to bottom,
+    var(--foreground) 0%,
+    var(--foreground) 55%,
+    color-mix(in srgb, var(--foreground) 40%, transparent) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }

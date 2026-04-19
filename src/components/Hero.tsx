@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Zap } from 'lucide-react';
 
@@ -19,38 +18,42 @@ export default function Hero() {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6 text-energy-yellow text-sm font-semibold tracking-wide border border-energy-yellow/20"
         >
-          <Zap size={14} className="fill-energy-yellow" />
+          <Zap size={14} className="fill-energy-yellow" aria-hidden="true" />
           The Future of Energy in Rwanda
         </motion.div>
-        
-        <h1 className="text-5xl md:text-8xl font-black tracking-tight mb-8 bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent leading-tight">
-          PowerSync Smart <br className="hidden md:block" />
+
+        <h1 className="text-5xl md:text-8xl font-black tracking-tight mb-8 leading-tight">
+          <span className="hero-gradient-text">PowerSync Smart</span>
+          <br className="hidden md:block" />
           <span className="text-energy-yellow">Microgrid System</span>
         </h1>
-        
-        <p className="text-xl md:text-2xl text-white/60 mb-12 max-w-3xl mx-auto leading-relaxed">
+
+        <p className="text-xl md:text-2xl text-foreground-muted mb-12 max-w-3xl mx-auto leading-relaxed">
           Reliable, fuel-free electricity through smart microgrids, allowing users to pay and control energy instantly from their phones.
         </p>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <motion.button
+          <motion.a
+            href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-energy-yellow text-black px-8 py-4 rounded-2xl text-lg font-black flex items-center gap-2 shadow-glow hover:brightness-110 transition-all"
+            className="bg-energy-yellow text-black px-8 py-4 rounded-2xl text-lg font-black flex items-center gap-2 shadow-glow hover:brightness-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
           >
-            Get Reliable Energy <ArrowRight size={20} />
-          </motion.button>
-          
-          <button className="glass px-8 py-4 rounded-2xl text-lg font-bold text-white/80 hover:bg-white/5 transition-all">
+            Get Reliable Energy <ArrowRight size={20} aria-hidden="true" />
+          </motion.a>
+
+          <a
+            href="#problem"
+            className="glass px-8 py-4 rounded-2xl text-lg font-bold text-foreground-dim hover:bg-foreground/5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-energy-yellow"
+          >
             See Rwanda&apos;s Solution
-          </button>
+          </a>
         </div>
       </motion.div>
-      
-      {/* Abstract Background Elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 pointer-events-none">
-        <div className="absolute top-[20%] left-[10%] w-64 h-64 bg-energy-yellow/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-energy-blue/10 rounded-full blur-[150px]" />
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-[20%] left-[10%] w-64 h-64 bg-energy-yellow/10 rounded-full blur-[120px] blur-orb" />
+        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-energy-blue/10 rounded-full blur-[150px] blur-orb" />
       </div>
     </section>
   );
