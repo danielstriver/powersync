@@ -26,7 +26,7 @@ No test suite is configured.
 
 This is a single-page marketing site for PowerSync, a smart microgrid product targeting Rwanda. There is one route: `src/app/page.tsx`, which composes all sections in order: `Navbar → Hero → Problem → Solution → HowItWorks → ValueProposition → Contact → Footer`.
 
-**Theme system:** Dark/light mode is toggled client-side via `data-theme` on `<html>`. CSS custom properties for both themes are defined in `globals.css`. `ThemeToggle` persists the choice to `localStorage`. Default is dark.
+**Theme system:** Dark/light mode is toggled client-side via `data-theme` on `<html>`. CSS custom properties for both themes are defined in `globals.css`. `ThemeToggle` reads `localStorage` first, then falls back to `prefers-color-scheme`, then dark.
 
 **Reusable UI primitives** live in `src/components/ui/`:
 - `AnimatedReveal` — scroll-triggered fade/slide/scale wrapper using Framer Motion (`whileInView`, `once: true`). Props: `delay` (seconds, default 0), `variant` (`'slide'` default | `'scale'`).
@@ -50,6 +50,7 @@ This is a single-page marketing site for PowerSync, a smart microgrid product ta
 
 **Theme-adaptive surface tokens:**
 - `bg-background` — page/section background (replaces `bg-black`)
+- `bg-background-opaque` — near-opaque background used for scrolled/open navbar overlay
 - `bg-card-bg` / `border-card-border` — subtle card surfaces
 - `bg-input-bg` / `border-input-border` / `placeholder:text-input-placeholder` — form inputs
 
@@ -61,4 +62,4 @@ All interactive/animated components require `'use client'`. Server components ar
 
 **Contact form** submits via `mailto:` (opens the user's mail client) — there is no backend API. `suppressHydrationWarning` on `<html>` is intentional: `ThemeToggle` writes `data-theme` to the DOM before React hydrates, which would otherwise cause a mismatch warning.
 
-**CSS variables not exposed as Tailwind tokens** (`--foreground-muted`, `--card-bg`, `--card-border`) are used directly via `var(--…)` in component styles or approximated with Tailwind opacity modifiers like `text-white/60`.
+**Fonts:** `layout.tsx` loads Geist Sans and Geist Mono via `next/font/google` and exposes them as CSS variables `--font-geist-sans` / `--font-geist-mono`. Body uses `--font-geist-sans` by default (set in `globals.css`).

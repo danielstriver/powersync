@@ -32,7 +32,7 @@ export default function Hero() {
           Reliable, fuel-free electricity through smart microgrids, allowing users to pay and control energy instantly from their phones.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
           <motion.a
             href="#contact"
             whileHover={{ scale: 1.05 }}
@@ -40,6 +40,16 @@ export default function Hero() {
             className="bg-energy-yellow text-black px-8 py-4 rounded-2xl text-lg font-black flex items-center gap-2 shadow-glow hover:brightness-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground cursor-pointer"
           >
             Get Reliable Energy <ArrowRight size={20} aria-hidden="true" />
+          </motion.a>
+
+          <motion.a
+            href="/simulate"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="glass border border-energy-yellow/30 px-8 py-4 rounded-2xl text-lg font-bold text-energy-yellow hover:bg-energy-yellow/10 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-energy-yellow cursor-pointer flex items-center gap-2"
+          >
+            <Zap size={18} className="fill-energy-yellow" aria-hidden="true" />
+            Try the Simulation
           </motion.a>
 
           <a

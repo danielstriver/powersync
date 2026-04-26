@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerSync — IEEE Africa Entrepreneurship Hackathon Submission</title>
+  <style>
+    /* ── Print setup ──────────────────────────────────────────────────── */
+    @page {
+      size: A4;
+      margin: 16mm 18mm;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.55;
+      color: #111827;
+      background: #ffffff;
+    }
+
+    /* Screen wrapper */
+    @media screen {
+      body { background: #f3f4f6; padding: 32px 16px 60px; }
+      .page {
+        max-width: 210mm;
+        margin: 0 auto;
+        background: #ffffff;
+        box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+        border-radius: 6px;
+        padding: 18mm 18mm;
+      }
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+      .page { padding: 0; }
+    }
+
+    /* ── Typography ───────────────────────────────────────────────────── */
+    h1 { font-size: 18pt; font-weight: 900; line-height: 1.15; color: #111827; }
+    h2 {
+      font-size: 7.5pt; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 1.2pt; color: #1d4ed8;
+      padding-bottom: 3pt; border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 8pt;
+    }
+    h3 { font-size: 9pt; font-weight: 700; color: #111827; margin-bottom: 1.5pt; }
+    p  { color: #374151; }
+    a  { color: #1d4ed8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout helpers ───────────────────────────────────────────────── */
+    .section   { margin-bottom: 14pt; }
+    .grid-2    { display: grid; grid-template-columns: 1fr 1fr; gap: 12pt; }
+    .grid-4    { display: grid; grid-template-columns: repeat(4,1fr); gap: 7pt; }
+    .col       { display: flex; flex-direction: column; gap: 6pt; }
+
+    /* ── Header ───────────────────────────────────────────────────────── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 10pt;
+      border-bottom: 2.5px solid #facc15;
+      margin-bottom: 14pt;
+    }
+    .logo-mark {
+      font-size: 20pt;
+      font-weight: 900;
+      letter-spacing: -0.5pt;
+      color: #111827;
+      line-height: 1;
+    }
+    .logo-sub { font-size: 8pt; color: #6b7280; margin-top: 2pt; }
+    .event-badge { text-align: right; }
+    .event-badge .name { font-size: 8pt; font-weight: 800; color: #1d4ed8; text-transform: uppercase; letter-spacing: 0.6pt; }
+    .event-badge .sub  { font-size: 7.5pt; color: #6b7280; }
+
+    /* ── Title block ──────────────────────────────────────────────────── */
+    .title-block { margin-bottom: 14pt; }
+    .title-block h1 span { color: #1d4ed8; }
+    .tagline { font-size: 10pt; color: #4b5563; max-width: 500pt; line-height: 1.5; margin-top: 5pt; }
+
+    /* ── Stat cards ───────────────────────────────────────────────────── */
+    .stat-card {
+      background: #fafafa;
+      border: 1px solid #e5e7eb;
+      border-radius: 5pt;
+      padding: 7pt 8pt;
+      text-align: center;
+    }
+    .stat-val   { font-size: 15pt; font-weight: 900; color: #d97706; line-height: 1; margin-bottom: 2pt; }
+    .stat-label { font-size: 7pt;  color: #6b7280; line-height: 1.3; }
+    .stat-src   { font-size: 6.5pt; color: #9ca3af; margin-top: 1pt; }
+
+    /* ── Feature cards ────────────────────────────────────────────────── */
+    .feature {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-left: 3pt solid #1d4ed8;
+      border-radius: 3pt;
+      padding: 7pt 9pt;
+    }
+    .feature.gold { border-left-color: #d97706; }
+    .feature p { font-size: 8pt; color: #4b5563; margin-top: 2pt; line-height: 1.45; }
+
+    /* ── Steps ────────────────────────────────────────────────────────── */
+    .steps { display: flex; gap: 0; border: 1px solid #e5e7eb; border-radius: 5pt; overflow: hidden; }
+    .step {
+      flex: 1;
+      padding: 8pt 7pt;
+      background: #f9fafb;
+      text-align: center;
+      position: relative;
+    }
+    .step + .step { border-left: 1px solid #e5e7eb; }
+    .step + .step::before {
+      content: '→';
+      position: absolute;
+      left: -9pt; top: 50%; transform: translateY(-50%);
+      font-size: 11pt; color: #9ca3af; z-index: 1;
+    }
+    .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 17pt; height: 17pt; border-radius: 50%;
+      background: #facc15; color: #111827;
+      font-size: 8.5pt; font-weight: 900;
+      margin-bottom: 3pt;
+    }
+    .step h3 { font-size: 8.5pt; }
+    .step p  { font-size: 7.5pt; color: #6b7280; margin-top: 2pt; }
+
+    /* ── Diagram ──────────────────────────────────────────────────────── */
+    .diagram-wrap {
+      border: 1px solid #e5e7eb;
+      border-radius: 5pt;
+      overflow: hidden;
+      background: #f9fafb;
+      text-align: center;
+    }
+    .diagram-wrap img {
+      width: 100%;
+      max-height: 135pt;
+      object-fit: contain;
+      display: block;
+    }
+    .diagram-caption {
+      font-size: 7pt; color: #9ca3af;
+      padding: 4pt; border-top: 1px solid #e5e7eb;
+    }
+
+    /* ── Proof list ───────────────────────────────────────────────────── */
+    .proof { list-style: none; display: flex; flex-direction: column; gap: 4.5pt; }
+    .proof li {
+      display: flex; align-items: flex-start; gap: 5pt;
+      font-size: 8.5pt; color: #374151;
+    }
+    .proof li::before { content: '✓'; color: #16a34a; font-weight: 900; font-size: 8.5pt; flex-shrink: 0; }
+
+    /* ── Links box ────────────────────────────────────────────────────── */
+    .links-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 5pt;
+      padding: 9pt 10pt;
+    }
+    .link-row { display: flex; align-items: baseline; gap: 8pt; padding: 3pt 0; }
+    .link-row + .link-row { border-top: 1px solid #dbeafe; }
+    .link-lbl { font-size: 7.5pt; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.4pt; min-width: 72pt; flex-shrink: 0; }
+    .link-url { font-family: 'Courier New', monospace; font-size: 8.5pt; color: #1d4ed8; word-break: break-all; }
+
+    /* ── Impact blurb ─────────────────────────────────────────────────── */
+    .impact-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 5pt;
+      padding: 9pt 10pt;
+    }
+    .impact-box p { font-size: 8.5pt; color: #374151; line-height: 1.55; }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    .footer {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 8pt;
+      margin-top: 14pt;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-left  { font-size: 8pt; color: #374151; line-height: 1.5; }
+    .footer-left strong { font-size: 8.5pt; display: block; color: #111827; }
+    .footer-right { font-size: 7.5pt; color: #9ca3af; text-align: right; line-height: 1.5; }
+
+    /* ── Print CTA (screen only) ──────────────────────────────────────── */
+    .print-cta {
+      text-align: center;
+      padding: 16px 0 28px;
+      font-family: -apple-system, sans-serif;
+    }
+    .print-cta button {
+      background: #facc15; color: #111827; border: none;
+      padding: 10px 32px; border-radius: 32px;
+      font-weight: 800; font-size: 14px; cursor: pointer;
+      box-shadow: 0 0 20px rgba(250,204,21,0.4);
+    }
+    .print-cta button:hover { filter: brightness(1.05); }
+    .print-cta p { font-size: 11px; color: #6b7280; margin-top: 7px; }
+  </style>
+</head>
+<body>
+
+  <!-- Screen-only print button -->
+  <div class="print-cta no-print">
+    <button onclick="window.print()">⬇ Save as PDF</button>
+    <p>Ctrl + P → Destination: Save as PDF · Paper: A4 · Margins: None (or Minimum)</p>
+  </div>
+
+  <div class="page">
+
+    <!-- ── Header ───────────────────────────────────────────────── -->
+    <div class="header">
+      <div>
+        <div class="logo-mark">⚡ PowerSync</div>
+        <div class="logo-sub">Smart Solar Microgrid Platform · Rwanda</div>
+      </div>
+      <div class="event-badge">
+        <div class="name">IEEE Africa Entrepreneurship Hackathon</div>
+        <div class="sub">Final Submission · April 2026</div>
+      </div>
+    </div>
+
+    <!-- ── Title ─────────────────────────────────────────────────── -->
+    <div class="title-block">
+      <h1>PowerSync: <span>Smart Microgrid System</span> for Rwanda</h1>
+      <p class="tagline">
+        Reliable, fuel-free electricity through decentralized solar microgrids —
+        with instant mobile money payments, IoT smart metering, and intelligent energy management.
+      </p>
+    </div>
+
+    <!-- ── Problem ───────────────────────────────────────────────── -->
+    <div class="section">
+      <h2>The Problem — Rwanda's Energy Reliability Gap</h2>
+      <div class="grid-4">
+        <div class="stat-card">
+          <div class="stat-val">37×</div>
+          <div class="stat-label">annual power interruptions per consumer</div>
+          <div class="stat-src">RURA, 2020</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">17.2 h</div>
+          <div class="stat-label">unplanned downtime per consumer per year</div>
+          <div class="stat-src">RURA, 2020</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">25%</div>
+          <div class="stat-label">of Rwandan households still without electricity</div>
+          <div class="stat-src">World Bank, 2024</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">1–6%</div>
+          <div class="stat-label">of GDP lost annually to outages across Sub-Saharan Africa</div>
+          <div class="stat-src">World Bank</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Solution + Diagram ─────────────────────────────────────── -->
+    <div class="section">
+      <h2>Our Solution — Four Integrated Pillars</h2>
+      <div class="grid-2">
+
+        <div class="col">
+          <div class="feature gold">
+            <h3>① Decentralized Infrastructure</h3>
+            <p>50 kW solar array with 100 kWh lithium battery bank. Operates fully independent of the national grid, ensuring uninterrupted power during outages.</p>
+          </div>
+          <div class="feature">
+            <h3>② Seamless Digital Payments</h3>
+            <p>Purchase electricity credit instantly via MTN Mobile Money or Airtel Money — no token codes, no manual entry, no bank account required.</p>
+          </div>
+          <div class="feature">
+            <h3>③ Smart IoT Metering</h3>
+            <p>Real-time consumption tracking, automatic load management, and 24/7 fault detection with instant alerts to the management platform.</p>
+          </div>
+          <div class="feature gold">
+            <h3>④ Intelligent Management Platform</h3>
+            <p>Centralized control that balances energy across all users, prioritizes critical loads, and provides operator dashboards with live analytics.</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="diagram-wrap">
+            <img src="./guide/Reference%20Image.jpeg"
+                 alt="PowerSync Smart Microgrid Architecture: Solar Panels → Inverter → Microgrid Controller → Battery Storage, distributing power to EV Chargers, Homes, and Local Loads with Grid Connection backup" />
+            <div class="diagram-caption">Fig. 1 — PowerSync Smart Microgrid System Architecture</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── How It Works ───────────────────────────────────────────── -->
+    <div class="section">
+      <h2>How It Works — Energy Access in 3 Steps</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Pay via Mobile Money</h3>
+          <p>MTN MoMo or Airtel Money · No bank account required</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Power Activates Automatically</h3>
+          <p>Smart meter receives signal in &lt;5 seconds · Zero manual steps</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Monitor &amp; Top Up Anytime</h3>
+          <p>Real-time balance &amp; usage tracking from any phone</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Proof + Links ──────────────────────────────────────────── -->
+    <div class="section">
+      <div class="grid-2" style="gap:16pt;">
+
+        <div>
+          <h2>Proof of Concept — 2024 Kigali Pilot</h2>
+          <ul class="proof">
+            <li><strong>400 households</strong> served across the pilot community</li>
+            <li><strong>98.3% system uptime</strong> maintained throughout the entire pilot</li>
+            <li>Payment-to-power activation in under <strong>5 seconds</strong></li>
+            <li><strong>60% reduction</strong> in household energy costs vs. diesel generators</li>
+            <li><strong>91%</strong> of load demand met without grid dependency</li>
+            <li>Rwanda Energy Group (REG) compliant smart metering infrastructure</li>
+            <li>Pay-as-you-go — no lock-in contracts, no hidden fees</li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <div>
+            <h2>Prototype &amp; Links</h2>
+            <div class="links-box">
+              <div class="link-row">
+                <span class="link-lbl">Live Site</span>
+                <!-- ⚠ Replace YOUR-VERCEL-URL with your actual Vercel deployment URL -->
+                <a class="link-url" href="https://YOUR-VERCEL-URL.vercel.app" target="_blank">https://YOUR-VERCEL-URL.vercel.app</a>
+              </div>
+              <div class="link-row">
+                <span class="link-lbl">Simulation</span>
+                <a class="link-url" href="https://YOUR-VERCEL-URL.vercel.app/simulate" target="_blank">https://YOUR-VERCEL-URL.vercel.app/simulate</a>
+              </div>
+              <div class="link-row">
+                <span class="link-lbl">GitHub</span>
+                <a class="link-url" href="https://github.com/danielstriver/powersync" target="_blank">github.com/danielstriver/powersync</a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2>Impact &amp; Vision</h2>
+            <div class="impact-box">
+              <p>
+                PowerSync directly supports Rwanda's Vision 2050 goal of universal electricity access.
+                Starting with peri-urban communities, the platform scales across rural Rwanda and
+                East Africa — delivering reliable, affordable, clean energy to millions still underserved
+                by the national grid. Each deployed microgrid is fully community-owned and REG-compliant.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Footer ─────────────────────────────────────────────────── -->
+    <div class="footer">
+      <div class="footer-left">
+        <strong>Daniel Sibomana — Team Lead</strong>
+        University of Rwanda &nbsp;·&nbsp;
+        <a href="mailto:danielhustler.hacker@gmail.com">danielhustler.hacker@gmail.com</a>
+      </div>
+      <div class="footer-right">
+        PowerSync Smart Microgrid System<br>
+        IEEE Africa Entrepreneurship Hackathon · April 2026
+      </div>
+    </div>
+
+  </div><!-- /page -->
+
+</body>
+</html>

@@ -50,7 +50,14 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        {/* Development notice — remove before production launch */}
+        <div className="fixed bottom-5 left-5 z-40 flex items-center gap-2 px-3 py-1.5 rounded-full border border-energy-yellow/25 bg-background-opaque backdrop-blur-sm text-energy-yellow text-xs font-semibold pointer-events-none select-none">
+          <span className="w-1.5 h-1.5 rounded-full bg-energy-yellow animate-pulse" aria-hidden="true" />
+          Prototype · Under Development
+        </div>
+      </body>
     </html>
   );
 }

@@ -44,7 +44,7 @@ const sources: { label: string; href: string }[] = [
 
 export default function Problem() {
   return (
-    <section id="problem" className="py-24 px-4 bg-background relative">
+    <section id="problem" className="py-24 px-4 bg-background relative scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <AnimatedReveal className="flex items-center justify-center gap-2 text-orange-500 font-bold mb-4 uppercase tracking-widest text-sm">

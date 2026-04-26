@@ -16,12 +16,12 @@ export default function Contact() {
     const message = data.get('message') as string;
     const subject = encodeURIComponent(`PowerSync Inquiry from ${name}`);
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-    window.location.href = `mailto:powersync@example.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:danielhustler.hacker@gmail.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   }
 
   return (
-    <section id="contact" className="py-24 px-4 bg-background relative overflow-hidden">
+    <section id="contact" className="py-24 px-4 bg-background relative overflow-hidden scroll-mt-20">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
           <motion.div

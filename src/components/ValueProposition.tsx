@@ -19,7 +19,7 @@ const guarantees: string[] = [
 
 export default function ValueProposition() {
   return (
-    <section id="value" className="py-24 px-4 bg-card-bg relative overflow-hidden">
+    <section id="value" className="py-24 px-4 bg-card-bg relative overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <AnimatedReveal className="flex items-center justify-center gap-2 text-foreground-muted font-bold mb-4 uppercase tracking-widest text-sm">

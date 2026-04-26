@@ -24,7 +24,7 @@ const steps: { step: string; Icon: LucideIcon; title: string; description: strin
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 px-4 bg-background relative overflow-hidden">
+    <section id="how-it-works" className="py-24 px-4 bg-background relative overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <AnimatedReveal className="flex items-center justify-center gap-2 text-energy-blue font-bold mb-4 uppercase tracking-widest text-sm">
